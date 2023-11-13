@@ -5,9 +5,9 @@ import NumerologyForm from "./Numerology";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <NumerologyForm />
-      </header>
+      {/* <header className="App-header"> */}
+      <NumerologyForm />
+      {/* </header> */}
     </div>
   );
 }
