@@ -7,6 +7,41 @@ function NumerologyForm() {
   const [lastName, setLastName] = useState("");
   const [myNumber, setMyNumber] = useState("Nr:");
   const [result, setResult] = useState();
+  const [firstNameError, setFirstNameError] = useState("");
+  const [lastNameError, setLastNameError] = useState("");
+  const [middleNameError, setMiddleNameError] = useState("");
+
+  const handleNameChange = (name, value) => {
+    const regex = /^[A-Za-z]*$/;
+
+    if (regex.test(value)) {
+      if (name === "first") {
+        setFirstNameError("");
+        setFirstName(value);
+      }
+      if (name === "last") {
+        setLastNameError("");
+        setLastName(value);
+      }
+      if (name === "middle") {
+        setMiddleNameError("");
+        setMiddleName(value);
+      }
+    } else {
+      if (name === "first") {
+        setFirstName(value);
+        setFirstNameError("Text can only contain English letters.");
+      }
+      if (name === "middle") {
+        setMiddleName(value);
+        setMiddleNameError("Text can only contain English letters.");
+      }
+      if (name === "last") {
+        setLastName(value);
+        setLastNameError("Text can only contain English letters.");
+      }
+    }
+  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -60,31 +95,38 @@ function NumerologyForm() {
       <input
         type="text"
         value={firstName}
-        onChange={(e) => setFirstName(e.target.value)}
+        onChange={(e) => handleNameChange("first", e.target.value)}
         required
         placeholder="First name"
         style={inputStyle}
       />
-
+      {firstNameError && (
+        <div style={{ color: "red", fontSize: 14 }}>{firstNameError}</div>
+      )}
       <input
         type="text"
         value={middleName}
-        onChange={(e) => setMiddleName(e.target.value)}
+        onChange={(e) => handleNameChange("middle", e.target.value)}
         placeholder="Middle name"
         style={inputStyle}
       />
-
+      {middleNameError && (
+        <div style={{ color: "red", fontSize: 14 }}>{middleNameError}</div>
+      )}
       <input
         type="text"
         value={lastName}
-        onChange={(e) => setLastName(e.target.value)}
+        onChange={(e) => handleNameChange("last", e.target.value)}
         required
         placeholder="Last name"
         style={inputStyle}
       />
-
+      {lastNameError && (
+        <div style={{ color: "red", fontSize: 14 }}>{lastNameError}</div>
+      )}
       <button
         type="submit"
+        disabled={firstNameError || lastNameError || middleNameError}
         style={{
           width: 300,
           margin: 20,
@@ -96,14 +138,6 @@ function NumerologyForm() {
       >
         Free numerology reading
       </button>
-      {/* <div>
-        <textarea
-          value={myNumber}
-          readOnly
-          style={{ width: 80, height: 20 }}
-          s
-        />
-      </div> */}
       <div>
         <textarea
           value={result}
