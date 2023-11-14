@@ -19,10 +19,8 @@ function App() {
   }, []);
   const renderComponent = () => {
     switch (currentHash) {
-      case "/astrology":
+      case "#/astrology":
         return <Astrology />;
-      case "/numerology":
-        return <NumerologyForm />;
       default:
         return <NumerologyForm />;
     }

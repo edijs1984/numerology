@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/numerology/static/css/main.f855e6bc.css",
-    "main.js": "/numerology/static/js/main.354c4cad.js",
+    "main.js": "/numerology/static/js/main.efdf0f88.js",
     "static/js/787.ce0b5dea.chunk.js": "/numerology/static/js/787.ce0b5dea.chunk.js",
     "index.html": "/numerology/index.html",
     "main.f855e6bc.css.map": "/numerology/static/css/main.f855e6bc.css.map",
-    "main.354c4cad.js.map": "/numerology/static/js/main.354c4cad.js.map",
+    "main.efdf0f88.js.map": "/numerology/static/js/main.efdf0f88.js.map",
     "787.ce0b5dea.chunk.js.map": "/numerology/static/js/787.ce0b5dea.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.f855e6bc.css",
-    "static/js/main.354c4cad.js"
+    "static/js/main.efdf0f88.js"
   ]
 }
