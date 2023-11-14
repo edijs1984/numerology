@@ -4,20 +4,21 @@ import Astrology from "./Astrology";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [currentPath, setCurrentPath] = useState(window.location.pathname);
+  const [currentHash, setCurrentHash] = useState(window.location.hash);
+
   useEffect(() => {
-    const onLocationChange = () => {
-      setCurrentPath(window.location.pathname);
+    const onHashChange = () => {
+      setCurrentHash(window.location.hash);
     };
 
-    // Listen to the popstate event which is triggered by browser navigation
-    window.addEventListener("popstate", onLocationChange);
+    // Listen to the hashchange event which is triggered by navigating to a new hash
+    window.addEventListener("hashchange", onHashChange);
 
     // Remove event listener on cleanup
-    return () => window.removeEventListener("popstate", onLocationChange);
+    return () => window.removeEventListener("hashchange", onHashChange);
   }, []);
   const renderComponent = () => {
-    switch (currentPath) {
+    switch (currentHash) {
       case "/astrology":
         return <Astrology />;
       case "/numerology":
