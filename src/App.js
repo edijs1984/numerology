@@ -23,7 +23,7 @@ function App() {
       case "/numerology":
         return <NumerologyForm />;
       default:
-        return <div>Home</div>;
+        return <NumerologyForm />;
     }
   };
 
